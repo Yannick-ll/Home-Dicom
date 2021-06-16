@@ -15,16 +15,22 @@ import java.util.Set;
 
 @Configuration
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-    @Value("${app.name}")
-    private String appName;
-
+    @Value("${app.contextPath}")
+    private String contextPath;
+    @Value("${app.env}")
+    private String env;
+    
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/" + appName + "/admin");
+            httpServletResponse.sendRedirect("/admin");
         } else {
-            httpServletResponse.sendRedirect("/" + appName + "/papaya");
+            if(env.equals("PROD")){
+                httpServletResponse.sendRedirect("/" + contextPath + "/papaya");
+            }else{
+                httpServletResponse.sendRedirect("/papaya");
+            }            
         }
     }
 }
