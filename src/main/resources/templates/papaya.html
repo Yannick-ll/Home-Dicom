@@ -12,12 +12,14 @@
         <title>Caranx Medical's technical challenge</title>
         <script type="text/javascript">
             var params = [];
+            params["contextManager"] = new ctxManager();
         </script>
     </head>
     <body>
         <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
+            <input type="submit" value="Log Out"/>
         </form>
+        <a id="downloadAnchorElem" style="display:none"></a>
         <div class="papaya" data-params="params"></div>
     </body>
 </html>
