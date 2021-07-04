@@ -10,6 +10,17 @@
         <link rel="stylesheet" type="text/css" href="css/papaya.css?build=1449" />
         <script type="text/javascript" src="js/papaya.js?build=1449"></script>
         <title>Caranx Medical's technical challenge</title>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var labelList = document.getElementById('labelList');
+                labelList.options[0] = new Option('--Select--', '');
+                labelList.options[1] = new Option('Zone1', 'Zone1');
+                labelList.options[2] = new Option('Zone2', 'Zone2');
+            });
+        </script>
+        
         <script type="text/javascript">
             var params = [];
             params["contextManager"] = new ctxManager();
@@ -23,8 +34,17 @@
             <a id="downloadAnchorElem" style="display:none"></a>
             <br>
         </div>
+        <div>
+            <form>
+                <p>Labels : <br>
+                    <select class="form-control"  id='labelList' name='annotationLabels' onClick="updateAnnotationLabel()">
+                    </select>	
+                </p>
 
-        <div style="width:1200px">
+            </form>
+        </div>
+
+        <div style="width:1000px">
             <div class="papaya" data-params="params"></div>
         </div>
         
