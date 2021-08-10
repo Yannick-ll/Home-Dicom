@@ -1,6 +1,11 @@
 # Home-Dicom
 Caranx Medical's technical challenge
-
+Goal :
+* Load dicom images
+* Display axial views
+* Display 3D view
+* Annotate slice
+* Download annotation
 
 ## Requirements
 * Java 1.8
