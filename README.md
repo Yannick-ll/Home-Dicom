@@ -1,6 +1,5 @@
 # Home-Dicom
-Caranx Medical's technical challenge
-Goal :
+Caranx Medical's technical challenge. Goal :
 * Load dicom images
 * Display axial views
 * Display 3D view
